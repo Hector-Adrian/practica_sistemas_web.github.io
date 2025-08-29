@@ -4,67 +4,172 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adrian Arellano :O</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
   <header class="header">
     <nav>
       <ul>
-        <li><a href="#" class="secreto" title="?????">LOBOTOMY CORPORATION</a></li>
-        <li><a href="#" class="nosecreto" >Sobre mí</a></li>
-        <li><a href="#" class="nosecreto" >Proyectos</a></li>
-        <li><a href="#" class="nosecreto" >Lenguajes</a></li>
+        <li><a href="lobotomy.html" class="secreto" target="_blank" title="?????">LOBOTOMY CORPORATION</a></li>
+        <li><a href="#Sobre_mi" class="nosecreto" >Sobre mí</a></li>
+        <li><a href="#habilidades" class="nosecreto" >Habilidades y tecnologías</a></li>
+        <li><a href="#proyectos" class="nosecreto" >Proyectos</a></li>
       </ul>
     </nav>
   </header>
 
 
-  <section class="Sobre_mi">
-    <div class="imagen_mia">
-      <div class="texto_de_yo">
-          Mi nombre es Héctor Adrian Mateu Arellano Marin Guerra Juarez Jimenez Alonso 3ero de la Cruz Baoyu Samsa Mertenz
+<section class="Sobre_mi" id="Sobre_mi">
+        <div class="imagen_mia">
+            <img src="moses.jpeg" alt="Héctor Adrián">
+            
+            <p class="profile-subtitle">
+                Ingeniero de software (en prácticas), universitario.
+            </p>
+        </div>
+
+        <div class="texto_de_yo">
+            Mi nombre es Héctor Adrian, ingeniero en software aún en aprendizaje, me considero una persona (poco) paciente que busca analizar los problemas detenidamente antes de hacer algo.
+            Ya es todo, no sé que mas poner, que me gustan las series con universos bien construidos, chistes malos, muy malos, asi de que horriblemente malos y juegos donde pensar es el elemento clave.
+        </div>
+    </section>
+
+  <section class="habilidades" id="habilidades">
+    <h2>Habilidades y tecnologías</h2>
+    <br>
+      <div class="contenedor">
+        <div class="carta">
+          <h3>⚒ Código</h3>
+          <div class="tags">
+            <div class="tag">Java</div>
+            <div class="tag">Python</div>
+            <div class="tag">SQL</div>
+            <div class="tag">Kotlin</div>
+            <div class="tag">HTML5</div>
+            <div class="tag">CSS3</div>
+          </div>
+        </div>
+        
+        <div class="carta">
+          <h3>🛠 Herramientas y Otros</h3>
+          <div class="tags">
+            <div class="tag">Git</div>
+            <div class="tag">Docker</div>
+            <div class="tag">Figma</div>
+          </div>
+        </div>
       </div>
-        <img src="YO.jpg" class>
-    </div>
   </section>
 
-  <section class="selection">
-    <h3>Selección del día</h3>
-    <div class="grid">
-      <div class="card"><img src="https://via.placeholder.com/200"><p>Sandiwchón</p></div>
-      <div class="card"><img src="https://via.placeholder.com/200"><p>Gelatina de galleta</p></div>
-      <div class="card"><img src="https://via.placeholder.com/200"><p>Res en adobo</p></div>
-      <div class="card"><img src="https://via.placeholder.com/200"><p>Sopa de pasta</p></div>
-    </div>
-    <a href="#" class="btn">Ver más</a>
-  </section>
+  <section class="proyectos" id="proyectos">
+        <h2 class="proyectos-title">Mis Proyectos</h2>
+        <p class="proyectos-subtitle">Nada mas funcionó una vez esta cosa, ya no espero que vuelva a funcionar</p>
+        
+        <div class="proyectos-grid" id="proyectos-container">
+            <!-- Los proyectos se cargarán automáticamente aquí -->
+            <div class="loading-placeholder">
+                <div class="loading-spinner"></div>
+                <p>Cargando proyectos desde GitHub...</p>
+            </div>
+        </div>
 
-  <section class="categories">
-    <h3>Categorías</h3>
-    <div class="grid">
-      <div class="cat"><img src="https://via.placeholder.com/200"><p>Platillo principal</p></div>
-      <div class="cat"><img src="https://via.placeholder.com/200"><p>Acompañamiento</p></div>
-      <div class="cat"><img src="https://via.placeholder.com/200"><p>Postres</p></div>
-      <div class="cat"><img src="https://via.placeholder.com/200"><p>Bebidas</p></div>
-    </div>
-  </section>
-
-  <section class="about">
-    <h3>Sobre nosotros</h3>
-    <p>
-      Recetas de todo tipo desde nuestro humilde hogar hasta tu pantalla,
-      este sitio fue creado con el afán de poder enseñar a la gente cómo cocinar,
-      desde cosas básicas hasta complejas, manteniendo siempre un lenguaje sencillo
-      y ejemplos para que sea más fácil de comprender por ustedes.
-    </p>
-  </section>
+        <a href="https://github.com/Hector-Adrian" class="ver-mas-btn" target="_blank">Ver más en GitHub</a>
+    </section>
 
 
   <footer class="footer">
     <p><strong>Héctor Adrian Mateu Arellano</strong></p>
     <p>Prestenme dinero se los devuelvo en <span id="contador">999999</span> segundos</p>
 
-  <script>
+  </footer>
+</body>
+
+    <script>
+        const GITHUB_USERNAME = 'Hector-Adrian';
+        const MAX_REPOS = 6;
+    function createProjectCard(repo) {
+            const languageColor = getLanguageColor(repo.language);
+            const description = repo.description || 'Sin descripción disponible';
+            const lastUpdated = formatDate(repo.updated_at);
+            
+            const hasDemo = repo.homepage && repo.homepage.trim() !== '';
+            
+            return `
+                <div class="proyecto-card">
+                    <div class="proyecto-header">
+                        <h3 class="proyecto-title">${repo.name}</h3>
+                        ${repo.language ? `<span class="proyecto-lenguaje" style="background: ${languageColor}20; color: ${languageColor};">${repo.language}</span>` : ''}
+                    </div>
+                    <p class="proyecto-descripcion">
+                        ${description}
+                    </p>
+                    <div class="proyecto-stats">
+                        <div class="stat">
+                            <svg class="stat-icon" viewBox="0 0 16 16">
+                                <path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"/>
+                            </svg>
+                            <span>${repo.stargazers_count}</span>
+                        </div>
+                        <div class="stat">
+                            <svg class="stat-icon" viewBox="0 0 16 16">
+                                <path d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.25 2.25 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75H9.25v-.75a.75.75 0 00-.75-.75h-1a.75.75 0 00-.75.75v.75H5.75a.75.75 0 01-.75-.75v-.878z"/>
+                            </svg>
+                            <span>${repo.forks_count}</span>
+                        </div>
+                        <div class="stat" style="margin-left: auto; font-size: 0.8rem;">
+                            ${lastUpdated}
+                        </div>
+                    </div>
+                    <div class="proyecto-links">
+                        <a href="${repo.html_url}" class="proyecto-link link-github" target="_blank">GitHub</a>
+                        ${hasDemo ? `<a href="${repo.homepage}" class="proyecto-link link-demo" target="_blank">Ver Demo</a>` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        async function loadGitHubRepos() {
+            const container = document.getElementById('proyectos-container');
+            
+            try {
+                // Hacer la petición a la API de GitHub
+                const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=50`);
+                
+                if (!response.ok) {
+                    throw new Error(`Error: ${response.status}`);
+                }
+                
+                const repos = await response.json();
+                
+                const filteredRepos = repos
+                    .filter(repo => !repo.fork) 
+                    .filter(repo => !repo.archived) 
+                    .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at)) 
+                    .slice(0, MAX_REPOS); 
+                
+ 
+                container.innerHTML = '';
+                
+                if (filteredRepos.length === 0) {
+                    container.innerHTML = '<div class="no-repos-message">No se encontraron repositorios públicos</div>';
+                    return;
+                }
+                
+                filteredRepos.forEach(repo => {
+                    container.innerHTML += createProjectCard(repo);
+                });
+                
+            } catch (error) {
+                console.error('Error al cargar repositorios:', error);
+                container.innerHTML = `
+                    <div class="error-message">
+                        <h3>Error al cargar proyectos</h3>
+                        <p>No se pudieron cargar los repositorios desde GitHub. Por favor, inténtalo más tarde.</p>
+                        <p><small>Error: ${error.message}</small></p>
+                    </div>
+                `;
+            }
+        }
     let tiempo = 999999; 
     const contador = document.getElementById("contador");
 
@@ -78,6 +183,4 @@
       }
     }, 1000);
   </script>
-  </footer>
-</body>
 </html>

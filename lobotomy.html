@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adrian Arellano :O</title>
+  <link rel="stylesheet" href="styles/estilos.css">
+</head>
+<body>
+  <header class="header">
+    <nav>
+      <ul>
+        <li><a href="index.html" class="secreto" target="_blank" title="?????">LOBOTOMY CORPORATION</a></li>
+        <li><a href="#" class="nosecreto" >Floors</a></li>
+        <li><a href="#" class="nosecreto" >Shephirah</a></li>
+        <li><a href="#" class="nosecreto" >Abnormalities</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+<section class="Sobre_mi" id="Sobre_mi">
+        <div class="imagen_mia">
+            <img src="LCorp.webp" alt="Héctor Adrián">
+        </div>
+
+        <div class="texto_de_yo">
+          Face the fear | Build the future
+        </div>
+    </section>
+
+  <section class="habilidades" id="floors">
+    <h2>Floors</h2>
+    <br>
+      <div class="contenedor">
+        <div class="carta">
+          <h3>Upper layer</h3>
+          <div class="tags">
+            <div class="tag">Malkuth</div>
+            <div class="tag">Netzatch</div>
+            <div class="tag">Yesod</div>
+            <div class="tag">Hod</div>
+          </div>
+        </div>
+        
+        <div class="carta">
+          <h3>Middle layer</h3>
+          <div class="tags">
+            <div class="tag">Chesed</div>
+            <div class="tag">Tiphereth</div>
+            <div class="tag">Geburah</div>
+          </div>
+        </div>
+
+        <div class="carta">
+          <h3>Lower layer</h3>
+          <div class="tags">
+            <div class="tag">Hokmah</div>
+            <div class="tag">Binah</div>
+            <div class="tag" class="secreto">Ketter</div>
+          </div>
+        </div>
+      </div>
+
+      <img src="Sephirah_floors.png" width="100%">
+  </section>
+
+
+  <footer class="footer">
+    <p><strong>Héctor Adrian Mateu Arellano</strong></p>
+    <p>Prestenme dinero se los devuelvo en <span id="contador">999999</span> segundos</p>
+
+  </footer>
+</body>
+
+    <script>
+    let tiempo = 999999; 
+    const contador = document.getElementById("contador");
+
+    const intervalo = setInterval(() => {
+      tiempo--; 
+      contador.textContent = tiempo;
+
+      if (tiempo <= 0) {
+        clearInterval(intervalo);
+        contador.textContent = "Hoy no puedo, vuelve a preguntar";
+      }
+    }, 1000);
+  </script>
+</html>
